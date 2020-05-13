@@ -1,0 +1,20 @@
+###
+POST https://i7.cs.hku.hk/~c3322b/Workshop2/hyng2/queryEntries_WS2.php
+Content-Type: application/x-www-form-urlencoded
+
+show=all
+
+
+###
+POST http://localhost:3001/users/register
+Content-Type: application/json
+
+{
+    "userId":"userid4",
+    "name":"Bob Parker",
+    "alias":"BB",
+    "email":"user4@hku.hk",
+    "password":"pwd",
+    "sessionId": "s-id4",
+    "sessionToken":"s-token4"
+}

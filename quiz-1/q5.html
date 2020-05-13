@@ -1,0 +1,48 @@
+<!doctype html>
+<html></head>
+<title>Test</title>
+</head>
+<body>
+<div id="L11">
+    <p id="L21">
+        <input id="L31" type="button" value="First"></p>
+    <p id="L22">
+        <input id="L32" type="button" value="Sec"></p>
+    <p id="L23">
+        <input id="L33" type="button" value="third"></p>
+</div>
+
+<script>
+    function f(evt) {
+        alert("f(" + evt.currentTarget.id + " , " + evt.target.id + ")");
+    }
+    function g(evt) {
+        alert("g(" + evt.currentTarget.id + " , " + evt.target.id + ")");
+    }
+    function h(evt) {
+        alert("h(" + evt.currentTarget.id + " , " + evt.target.id + ")");
+        evt.stopPropagation();
+    }
+
+    var elem = document.getElementById("L11");
+    elem.addEventListener("click", f, true);
+    elem.addEventListener("click", g, false);
+
+    var elem = document.getElementById("L31");
+    elem.addEventListener("click", g, false);
+
+    var elem = document.getElementById("L22");
+    elem.addEventListener("click", h, true);
+
+    var elem = document.getElementById("L32");
+    elem.addEventListener("click", g, false);
+
+    var elem = document.getElementById("L23");
+    elem.addEventListener("click", h, false);
+    elem.addEventListener("click", f, true);
+
+    var elem = document.getElementById("L33");
+    elem.addEventListener("click", g, false);
+</script>
+</body>
+</html>

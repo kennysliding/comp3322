@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Test CSS Styling</title>
+        <style>
+            h1 {
+                border: 5px dashed;
+                margin: auto;
+                text-align: center;
+            }
+            span {
+                font-weight: bold;
+            }
+            span:nth-child(2) {
+                color: red;
+            }
+            div {
+                width: 60%;
+                border: 1px solid blue;
+                font-weight: bold;
+                font-size: x-large;
+                background: yellow;
+                margin-bottom: 15px;
+            }
+            div:nth-of-type(2) {
+                background: orange;
+                float: right;
+                text-align: right;
+            }
+            div:nth-of-type(3) {
+                background: pink;
+                text-align: center;
+                font-style: italic;
+            }
+            p {
+                border: 1px dotted grey;
+                clear: both;
+            }
+            p:last-of-type::after {
+                content: "The End";
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The Hunger Game</h1>
+        <p>
+            <span>Katniss:</span> represented her district in the games. <span>Two
+times</span>.
+</p>
+        <p>
+            <span>Peeta:</span> Katniss's partner in the game.
+            </p>
+        <div>The Hunger Games</div>
+        <div>Catching Fire</div>
+        <p>They are mentored by their district's only living victor, Haymitch
+Abernathy.</p>
+        <p>
+            <span>President Snow:</span> threatens to harm Katniss' family.</p>
+        <div>Mockingjay</div>
+        <p>
+            <span>Peeta:</span> To hear our story, find us at <a
+href="https://en.wikipedia.org/wiki/The_Hunger_Games">here</a>. We are so
+popular. Most read our story once in your life...</p>
+    </body>
+</html>
