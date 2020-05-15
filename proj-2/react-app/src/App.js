@@ -6,22 +6,38 @@ import './App.css';
 import Home from "./components/Home.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
+import Logout from "./components/Logout.jsx";
+import AddEvent from "./components/AddEvent.jsx";
+import Event from "./components/Event.jsx";
+
 function App() {
   return (
     <main>
-      <Switch>
-        <Route path='/' component={Home} exact />
-        <Route path='/main' component={Home} exact />
-        <Route path='/signup' component={SignUp} exact />
-        <Route path='/login' component={Login} exact />
-        <Route component={Error} />
-      </Switch>
+      <div className="d-flex justify-content-center">
+        <div className="container m-2 p-1 w-100">
+          <div className="card p-3">
+            <div className="card-title text-center">
+              <h3 className="text-info">3322 Event Management System</h3>
+            </div>
+            <Switch>
+              <Route path='/' component={Home} exact />
+              <Route path='/main' component={Home} exact />
+              <Route path='/signup' component={SignUp} exact />
+              <Route path='/login' component={Login} exact />
+              <Route path='/logout' component={Logout} exact />
+              <Route path='/addevent' component={AddEvent} exact />
+              <Route path='/events/:eventId' component={Event} />
+              <Route component={Error} />
+            </Switch>
+          </div>
+        </div>
+      </div>
     </main>
   )
 }
 
 function Error(props) {
-  useEffect((props) => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       props.history.push("/");
     }, 3000);

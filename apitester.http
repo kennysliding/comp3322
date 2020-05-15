@@ -18,3 +18,208 @@ Content-Type: application/json
     "sessionId": "s-id4",
     "sessionToken":"s-token4"
 }
+
+### create events
+POST http://localhost:3001/create-events
+Content-Type: application/json
+
+{
+	"events": [
+		{
+			"eventId": "eventid0",
+			"type": "private",
+			"title": "Prepare for the exam",
+			"startTime": "2020-01-01 00:01",
+			"endTime": "2020-12-31 23:59",
+			"location": "N/A",
+			"attenders": [
+				"userid1"
+			],
+			"description": "prepare",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid1",
+			"type": "public",
+			"title": "CS Public Workshop",
+			"startTime": "2020-05-01 13:00",
+			"endTime": "2020-05-01 18:00",
+			"location": "CYC 101",
+			"attenders": [
+				"userid1",
+				"userid2",
+				"userid3"
+			],
+			"description": "Workshop",
+			"description": "~",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid2",
+			"type": "public",
+			"title": "Online JobFair",
+			"startTime": "2020-04-0 18:00",
+			"endTime": "2020-05-01 18:00",
+			"location": "Zoom",
+			"attenders": [
+				"userid1",
+				"userid2",
+				"userid3"
+			],
+			"description": "Job Fair for CS students",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid3",
+			"type": "public",
+			"title": "CSWorkshop2",
+			"startTime": "2020-04-30 13:00",
+			"endTime": "2020-04-30 18:00",
+			"location": "CYC 101",
+			"attenders": [
+				"userid1",
+				"userid3"
+			],
+			"description": "workshop 2",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid4",
+			"type": "public",
+			"title": "Group Meeting",
+			"startTime": "2020-04-10 13:00",
+			"endTime": "2020-04-10 15:00",
+			"location": "Zoom",
+			"attenders": [
+				"userid1",
+				"userid2"
+			],
+			"description": "Group Meeting",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid5",
+			"type": "private",
+			"title": "Meeting with supervisor",
+			"startTime": "2020-04-05 15:00",
+			"endTime": "2020-04-05 18:00",
+			"location": "Zoom",
+			"attenders": [
+				"userid1"
+			],
+			"description": "Regular meeting",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid6",
+			"type": "private",
+			"title": "Prepare for pregraduation seminar",
+			"startTime": "2020-04-01 15:00",
+			"endTime": "2020-04-05 15:00",
+			"location": "Dorm",
+			"attenders": [
+				"userid1"
+			],
+			"description": "Prepare for pre-graduation Seminar",
+			"creator": "AliceC",
+			"creatorId": "userid1"
+		},
+		{
+			"eventId": "eventid7",
+			"type": "public",
+			"title": "Pre-graduation Seminar: Emma Wong",
+			"startTime": "2020-04-06 15:00",
+			"endTime": "2020-04-06 16:00",
+			"location": "CYC 101",
+			"attenders": [
+				"userid1",
+				"userid2"
+			],
+			"description": "Host: Emma Wong",
+			"creator": "E.W.",
+			"creatorId": "userid2"
+		},
+		{
+			"eventId": "eventid8",
+			"type": "public",
+			"title": "Online Competition: Warm-up",
+			"startTime": "2020-04-01 00:00",
+			"endTime": "2020-04-10 23:59",
+			"location": "CYC 101",
+			"attenders": [
+				"userid",
+				"userid2",
+				"userid3"
+			],
+			"description": "Warm-up",
+			"creator": "John",
+			"creatorId": "userid3"
+		},
+		{
+			"eventId": "eventid9",
+			"type": "public",
+			"title": "Online Competition",
+			"startTime": "2020-04-01 00:01",
+			"endTime": "2020-05-01 23:59",
+			"location": "Online: www.codeforces.com",
+			"attenders": [
+				"userid2",
+				"userid3"
+			],
+			"description": "Online Coding",
+			"creator": "John",
+			"creatorId": "userid3"
+		},
+		{
+			"eventId": "eventid10",
+			"type": "private",
+			"title": "Do homework",
+			"startTime": "2020-04-07 17:00",
+			"endTime": "2020-04-07 18:00",
+			"location": "Main Library",
+			"attenders": [
+				"userid4"
+			],
+			"description": "Homework of COMP 0001",
+			"creator": "BB",
+			"creatorId": "userid4"
+		},
+		{
+			"eventId": "eventid11",
+			"type": "public",
+			"title": "Bobs birthday party",
+			"startTime": "2020-05-01 18:00",
+			"endTime": "2020-05-01 20:00",
+			"location": "Park Hotel",
+			"attenders": [
+				"userid1",
+				"userid2",
+				"userid3",
+				"userid4"
+			],
+			"description": "Bobs birthday",
+			"creator": "BB",
+			"creatorId": "userid4"
+		},
+		{
+			"eventId": "eventid12",
+			"type": "public",
+			"title": "Class COMP 0001",
+			"startTime": "2020-05-30 13:00",
+			"endTime": "2020-05-30 15:00",
+			"location": "CYC 001",
+			"attenders": [
+				"userid4"
+			],
+			"description": "Attend class",
+			"creator": "BB",
+			"creatorId": "userid4"
+		}
+	]
+}

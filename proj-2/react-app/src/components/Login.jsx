@@ -28,52 +28,65 @@ class Login extends Component {
       delete data.error;
       Object.entries(data).forEach(([k, v]) => {
         if (v === "") {
-          throw alert(`${k} is not yet filled.`);
+          throw alert(`Please fill in ${k}.`);
         }
       });
       let result = await axios.post("/users/signin", data);
-      alert("Success");
+      if (result) {
+        alert(result.data.message);
+        this.props.history.push("/");
+      }
     } catch (error) {
+      this.setState({ password: "" });
       if (error) {
-        alert("Failed");
+        alert(`Failed: ${error.response.data.message}`);
       }
     }
   };
 
   render() {
     return (
-      <div className="container">
-        <div className="card p-3">
-          <div className="card-title text-center">
-            3322 Event Management System
+      <React.Fragment>
+        <div className="card-body">
+          <div className="form-group">
+            <label>Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Which email do we reach you?"
+              id="email"
+              onChange={(event) => this.handleInputChange(event)}
+            />
           </div>
-          <div className="card-body">
-            <div className="form-group">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Which email do we reach you?"
-                id="email"
-                onChange={(event) => this.handleInputChange(event)}
-              />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Your password"
-                id="password"
-                onChange={(event) => this.handleInputChange(event)}
-              />
-            </div>
-            <button className="btn btn-primary" onClick={this.handleSubmit}>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Your password"
+              id="password"
+              onChange={(event) => this.handleInputChange(event)}
+            />
+          </div>
+          <div className="d-flex justify-content-between">
+            <button className="btn btn-primary m-1" onClick={this.handleSubmit}>
               Submit
+            </button>
+            <button
+              className="btn btn-primary m-1"
+              onClick={() => this.props.history.push("/signup")}
+            >
+              Register
+            </button>
+            <button
+              className="btn btn-primary m-1"
+              onClick={() => this.props.history.push("/")}
+            >
+              Back to home
             </button>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

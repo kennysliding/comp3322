@@ -9,7 +9,7 @@ app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use((req, res, next) => {
     try {
         console.log(`Credential:\n${JSON.stringify(req.signedCookies, null, 2)}`);
-        if (req.method === "POST") console.log(`Body:\n${JSON.stringify(req.body, null, 2)}`);
+        if (["POST", "PUT"].includes(req.method)) console.log(`Body:\n${JSON.stringify(req.body, null, 2)}`);
         return next();
     } catch (error) {
         console.log(error);
@@ -23,11 +23,13 @@ app.post("/users/register", UserAPI.userRegister);
 app.post("/users/signin", UserAPI.userLogin);
 
 // event routes
-app.get("/events", tester);
-app.post("/events", tester);
-app.delete("/events/:eventId", tester);
-app.put("/events/:eventId", tester);
-app.put("/events/:eventId/register", tester);
+app.get("/events", EventAPI.getEvents);
+app.get("/event/:eventId", EventAPI.getEvent);
+app.post("/events", UserAPI.ensureAuthenticated, EventAPI.createEvent);
+app.delete("/events/:eventId", UserAPI.ensureAuthenticated, EventAPI.checkOwner, EventAPI.deleteEvent);
+app.put("/events/:eventId", UserAPI.ensureAuthenticated, EventAPI.checkOwner, EventAPI.updateEvent);
+app.put("/events/:eventId/register", UserAPI.ensureAuthenticated, EventAPI.registerEvent);
+app.post("/create-events", EventAPI.createEvents);
 
 // fallback and tester routes
 app.get("/testing", tester);

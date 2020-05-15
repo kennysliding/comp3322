@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
-
+const shortid = require("shortid");
 const eventModel = mongoose.Schema({
     eventId: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        default: shortid.generate()
     },
     type: {
         type: String,

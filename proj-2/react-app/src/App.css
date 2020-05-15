@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
+}
+
+#root {
+  background-color: lightgray;
+  height: 100%;
+}
+
+card {
+  background-color: azure;
+}
