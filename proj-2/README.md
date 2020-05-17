@@ -4,11 +4,15 @@ Project 2 for COMP3322
 
 Design and implement an event management system to post and manage public and private events.
 
+## Instruction for setup
+
+Run `npm install` in both ~/server-app and ~/react-app
+
 ## Instruction for opening
 
 Use MongoDB ver 4.2 to open the database as stored in ~/data folder
 
-Run `node app.js` in ~/proj2 to start the Express app
+Run `node app.js` in ~/server-app to start the Express app
 
 Run `npm start` in ~/react-app to start the React app
 
