@@ -50,23 +50,22 @@ This is a **MERN stack** application
 
 ## Progress
 
-1. Create pages(4 points)
+1. Create pages (4 points)
 
-- [x] Correctness of the main page(1 point)
-- [x] Correctness of the login page(0.5 points)
-- [x] Correctness of the register page(0.5 points)
-- [x] Correctness of the event detail page(1.5points)
-- [x] Correctness of the event publishing page(0.5 points)
-- [x] Finish my changes
+   - - [x] Correctness of the main page (1 point)
+   - - [x] Correctness of the login page (0.5 points)
+   - - [x] Correctness of the register page (0.5 points)
+   - - [x] Correctness of the event detail page (1.5 points)
+   - - [x] Correctness of the event publishing page (0.5 points)
 
-2. Functions(7.5points)
+2. Functions (7.5 points)
 
-- [x] Correctness of functions in login page(0.5 points)
-- [x] Correctness of functions in register page(1 point)
-- [x] Correctness of functions in main page(2.5points)
-- [x] Correctness of functions in event publishing page(1 point)
-- [x] Correctness of functions in event detail page(2.5 points)
-- [x] Validation of user operations(2 points)
-- [x] Styling and responsive design (2.5 points)
-- [x] Validation of user operations(2 points)
-- [x] Styling and responsive design (2.5 points)
+   - - [x] Correctness of functions in login page (0.5 points)
+   - - [x] Correctness of functions in register page (1 point)
+   - - [x] Correctness of functions in main page (2.5 points)
+   - - [x] Correctness of functions in event publishing page (1 point)
+   - - [x] Correctness of functions in event detail page (2.5 points)
+   - - [x] Validation of user operations (2 points)
+   - - [x] Styling and responsive design (2.5 points)
+   - - [x] Validation of user operations (2 points)
+   - - [x] Styling and responsive design (2.5 points)
