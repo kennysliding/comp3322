@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const routes = require("./routes.js");
 const db = require('mongoose');
-db.connect('mongodb://localhost/proj2', { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+db.connect('mongodb://localhost/project2', { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err)
     console.log("MongoDB connection error: " + err);
   else

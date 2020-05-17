@@ -6,7 +6,7 @@ Design and implement an event management system to post and manage public and pr
 
 ## Instruction for opening
 
-Use MongoDB ver 4.2 to open the database as stored in ~/proj2/data folder
+Use MongoDB ver 4.2 to open the database as stored in ~/data folder
 
 Run `node app.js` in ~/proj2 to start the Express app
 
@@ -21,6 +21,7 @@ This is a **MERN stack** application
 - ExpressJS & NodeJS
 
   - cookie-parser: ~1.4.4
+  - cors: ^2.8.5
   - cryptr: ^6.0.2
   - debug: ~2.6.9
   - express: ~4.16.1
