@@ -37,6 +37,7 @@ This is a **MERN stack** application
   - shortid: ^2.2.15
 
 - ReactJS
+
   - axios: ^0.19.2
   - bootstrap: ^4.4.1
   - jquery: ^3.5.1
@@ -46,3 +47,26 @@ This is a **MERN stack** application
   - react-dom: ^16.13.1
   - react-router-dom: ^5.1.2
   - react-scripts: 3.4.1
+
+## Progress
+
+1. Create pages(4 points)
+
+- [x] Correctness of the main page(1 point)
+- [x] Correctness of the login page(0.5 points)
+- [x] Correctness of the register page(0.5 points)
+- [x] Correctness of the event detail page(1.5points)
+- [x] Correctness of the event publishing page(0.5 points)
+- [x] Finish my changes
+
+2. Functions(7.5points)
+
+- [x] Correctness of functions in login page(0.5 points)
+- [x] Correctness of functions in register page(1 point)
+- [x] Correctness of functions in main page(2.5points)
+- [x] Correctness of functions in event publishing page(1 point)
+- [x] Correctness of functions in event detail page(2.5 points)
+- [x] Validation of user operations(2 points)
+- [x] Styling and responsive design (2.5 points)
+- [x] Validation of user operations(2 points)
+- [x] Styling and responsive design (2.5 points)
