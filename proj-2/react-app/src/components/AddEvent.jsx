@@ -134,7 +134,7 @@ class SignUp extends Component {
           Submit
         </button>
         <button
-          className="btn btn-primary m-1"
+          className="btn btn-danger m-1"
           onClick={() => {
             this.props.history.push("/");
           }}

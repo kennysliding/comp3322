@@ -138,20 +138,20 @@ class Event extends Component {
       <React.Fragment>
         {document.cookie ? (
           <div className="d-flex justify-content-between">
-            <p>Hi {this.state.name}</p>
+            <p className="my-auto">Hi {this.state.name}</p>
             {this.state.event.type &&
               this.state.event.type.value === "public" &&
               !this.state.owner &&
               this.state.name && (
                 <button
-                  className="btn btn-sm btn-primary m-2"
+                  className="btn btn-sm btn-success m-2"
                   onClick={this.joinEvent}
                 >
                   {this.state.joined ? "Leave" : "Join"}
                 </button>
               )}
             <button
-              className="btn btn-sm btn-primary m-2"
+              className="btn btn-sm btn-danger m-2"
               onClick={() => {
                 this.props.history.push("/logout");
               }}
@@ -162,7 +162,7 @@ class Event extends Component {
         ) : (
           <React.Fragment>
             <button
-              className="btn btn-sm btn-primary m-2"
+              className="btn btn-sm btn-info m-2"
               onClick={() => {
                 this.props.history.push("/login");
               }}
@@ -170,7 +170,7 @@ class Event extends Component {
               Login
             </button>
             <button
-              className="btn btn-sm btn-primary m-2"
+              className="btn btn-sm btn-info m-2"
               onClick={() => {
                 this.props.history.push("/signup");
               }}

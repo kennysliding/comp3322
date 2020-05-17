@@ -9,7 +9,6 @@ class Home extends Component {
     this.state = {
       name: helper.getCookie("name"),
       events: [],
-      allEvents: [],
     };
     this.showPastEvents = this.showPastEvents.bind(this);
     this.showCurrentEvents = this.showCurrentEvents.bind(this);
@@ -18,23 +17,28 @@ class Home extends Component {
   async componentDidMount() {
     let response = await axios.get("/events");
     let events = response.data.events;
+    events = events.filter((event) => moment(event.endTime) > moment());
     events = events.sort((a, b) => moment(a.startTime) - moment(b.startTime));
-    this.setState({ allEvents: events });
-    events = events.filter((event) => moment(event.endTime) > moment());
     this.setState({ events });
   }
 
-  showPastEvents() {
-    let events = this.state.allEvents;
+  async showPastEvents() {
+    let response = await axios.get("/events");
+    let events = response.data.events;
     events = events.filter(
-      (event) => moment(event.endTime) > moment().subtract("14", "d")
+      (event) =>
+        moment(event.endTime) >= moment().subtract("14", "d") &&
+        moment(event.endTime) < moment()
     );
+    events = events.sort((a, b) => moment(a.startTime) - moment(b.startTime));
     this.setState({ events });
   }
 
-  showCurrentEvents() {
-    let events = this.state.allEvents;
-    events = events.filter((event) => moment(event.endTime) > moment());
+  async showCurrentEvents() {
+    let response = await axios.get("/events");
+    let events = response.data.events;
+    events = events.filter((event) => moment(event.endTime) >= moment());
+    events = events.sort((a, b) => moment(a.startTime) - moment(b.startTime));
     this.setState({ events });
   }
 
@@ -44,9 +48,9 @@ class Home extends Component {
         {document.cookie ? (
           <React.Fragment>
             <div className="d-flex justify-content-between">
-              <p>Hi {this.state.name}</p>
+              <p className="my-auto">Hi {this.state.name}</p>
               <button
-                className="btn btn-primary m-2"
+                className="btn btn-sm btn-info m-2"
                 onClick={() => {
                   this.props.history.push("/addevent");
                 }}
@@ -54,7 +58,7 @@ class Home extends Component {
                 Add Event
               </button>
               <button
-                className="btn btn-primary m-2"
+                className="btn btn-sm btn-danger m-2"
                 onClick={() => {
                   this.props.history.push("/logout");
                 }}
@@ -66,7 +70,7 @@ class Home extends Component {
         ) : (
           <React.Fragment>
             <button
-              className="btn btn-primary m-2"
+              className="btn btn-sm btn-info m-2"
               onClick={() => {
                 this.props.history.push("/login");
               }}
@@ -74,7 +78,7 @@ class Home extends Component {
               Login
             </button>
             <button
-              className="btn btn-primary m-2"
+              className="btn btn-sm btn-info m-2"
               onClick={() => {
                 this.props.history.push("/signup");
               }}
@@ -83,7 +87,7 @@ class Home extends Component {
             </button>
           </React.Fragment>
         )}
-        <div class="btn-group" role="group">
+        <div className="btn-group" role="group">
           <button
             className="btn btn-primary m-1"
             onClick={this.showCurrentEvents}
@@ -97,38 +101,42 @@ class Home extends Component {
             Past Event
           </button>
         </div>
-        <table className="table table-hover table-responsive">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Time</th>
-              <th scope="col">Venue</th>
-              <th scope="col">Owner</th>
-              <th scope="col">Attenders</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.events.map((event, index) => {
-              return (
-                <React.Fragment>
-                  <tr
-                    onClick={() =>
-                      this.props.history.push(`/events/${event.eventId}`)
-                    }
-                  >
-                    <td>{event.title}</td>
-                    <td>
-                      {moment(event.startTime).format("YYYY-MM-DD HH:mm")}
-                    </td>
-                    <td>{event.location}</td>
-                    <td>{event.creator}</td>
-                    <td>{event.attenders.length}</td>
-                  </tr>
-                </React.Fragment>
-              );
-            })}
-          </tbody>
-        </table>
+        <div class="row justify-content-center">
+          <div class="col-auto table-responsive">
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Venue</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Attenders</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.events.map((event, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <tr
+                        onClick={() =>
+                          this.props.history.push(`/events/${event.eventId}`)
+                        }
+                      >
+                        <td>{event.title}</td>
+                        <td>
+                          {moment(event.startTime).format("YYYY-MM-DD HH:mm")}
+                        </td>
+                        <td>{event.location}</td>
+                        <td>{event.creator}</td>
+                        <td>{event.attenders.length}</td>
+                      </tr>
+                    </React.Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

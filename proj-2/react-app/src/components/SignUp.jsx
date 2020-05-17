@@ -102,15 +102,23 @@ class SignUp extends Component {
               onChange={(event) => this.handleInputChange(event)}
             />
           </div>
-          <button className="btn btn-primary m-1" onClick={this.handleSubmit}>
-            Submit
-          </button>
-          <button
-            className="btn btn-primary m-1"
-            onClick={() => this.props.history.push("/")}
-          >
-            Back to home
-          </button>
+          <div className="d-flex justify-content-between">
+            <button className="btn btn-primary m-1" onClick={this.handleSubmit}>
+              Submit
+            </button>
+            <button
+              className="btn btn-info m-1"
+              onClick={() => this.props.history.push("/login")}
+            >
+              Have an account?
+            </button>
+            <button
+              className="btn btn-danger m-1"
+              onClick={() => this.props.history.push("/")}
+            >
+              Back to home
+            </button>
+          </div>
         </div>
       </React.Fragment>
     );
